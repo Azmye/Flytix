@@ -5,6 +5,7 @@ import newsImage1 from '../assets/Images/elijah-wood-amc.avif';
 import newsImage2 from '../assets/Images/james-gunn-dcu.avif';
 import newsImage3 from '../assets/Images/lady-qi-ra-in-solo-a-star-wars-story.avif';
 import NewsPrewCard from '../Components/News/NewsPrewCard';
+import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 
 const images = [
   'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg',
@@ -25,9 +26,11 @@ const Home = () => {
         </section>
         <section id="now-movie">
           <div className="px-4 pt-4 container">
-            <div className="flex justify-between ">
+            <div className="flex justify-between items-center">
               <h2 className="font-bold text-orange-500">Now Playing</h2>
-              <Link>View All</Link>
+              <Link className="text-sky-500">
+                <HiOutlineArrowLongRight size={33} />
+              </Link>
             </div>
 
             <div className="py-2 flex flex-wrap">
@@ -40,9 +43,11 @@ const Home = () => {
         </section>
         <section id="movie-news">
           <div className="px-4 pt-4 container">
-            <div className="flex justify-between ">
+            <div className="flex items-center justify-between ">
               <h2 className="font-bold text-orange-500">Latest News</h2>
-              <Link>View All</Link>
+              <Link to={'#'} className="text-slate-500">
+                <HiOutlineArrowLongRight size={33} />
+              </Link>
             </div>
 
             <div className="py-2 flex flex-col divide-y divide-orange-500">
