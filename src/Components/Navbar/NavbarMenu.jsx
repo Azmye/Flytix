@@ -1,4 +1,6 @@
 import { FaTicketAlt } from 'react-icons/fa';
+import { HiHome } from 'react-icons/hi2';
+import { RiBuilding3Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 const NavbarMenu = () => {
@@ -14,10 +16,14 @@ const NavbarMenu = () => {
 
       <ul className="fixed bottom-0 left-0 right-0 flex justify-evenly py-4 bg-slate-900">
         <li className="font-bold text-orange-700">
-          <Link to={'/'}>Home</Link>
+          <Link to={'/'}>
+            <HiHome size={24} />
+          </Link>
         </li>
         <li className="font-bold text-orange-700">
-          <Link>Cinema</Link>
+          <Link>
+            <RiBuilding3Fill size={24} />
+          </Link>
         </li>
       </ul>
     </nav>

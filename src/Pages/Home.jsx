@@ -34,10 +34,10 @@ const Home = () => {
             </div>
 
             <div className="py-2 flex flex-wrap">
-              <MovieCard />
-              <MovieCard />
-              <MovieCard />
-              <MovieCard />
+              <MovieCard link={'/moviedets'} />
+              <MovieCard link={'/moviedets'} />
+              <MovieCard link={'/moviedets'} />
+              <MovieCard link={'/moviedets'} />
             </div>
           </div>
         </section>
