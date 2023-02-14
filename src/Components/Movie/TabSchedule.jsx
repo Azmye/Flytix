@@ -1,4 +1,8 @@
+import { useState } from 'react';
+import MovieSeats from './MovieSeats';
+
 const TabSchedule = () => {
+  const seats = Array.from({ length: 48 }, (_, i) => i);
   return (
     <>
       <section id="Dates" className="px-4 py-2 container">
@@ -19,14 +23,18 @@ const TabSchedule = () => {
         </ul>
       </section>
 
-      {/* <section id="seat" className="px-4 py-2 container">
+      <section id="seat" className="px-4 py-2 container">
         <h2 className="font-semibold text-orange-500">Seat</h2>
-        <div>
-          <div id="screen">
-            <div className=""></div>
+        <div className="my-2">
+          <div id="screen" className="">
+            <div className="bg-slate-900 rounded-t-lg shadow-xl shadow-sky-300 w-full h-20 "></div>
+          </div>
+
+          <div id="seats" className="mb-20 mt-5 flex flex-wrap">
+            {<MovieSeats seats={seats} />}
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 };
