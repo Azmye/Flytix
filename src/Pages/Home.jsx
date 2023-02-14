@@ -6,22 +6,30 @@ import newsImage2 from '../assets/Images/james-gunn-dcu.avif';
 import newsImage3 from '../assets/Images/lady-qi-ra-in-solo-a-star-wars-story.avif';
 import NewsPrewCard from '../Components/News/NewsPrewCard';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import useFetch from '../Config/useFetch';
+import { useEffect, useState } from 'react';
 
-const images = [
-  'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg',
-  'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg',
-  'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/g0UfxFPjNCBjuv2G0K15Qu6p7zk.jpg',
-];
+// const images = [
+//   'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg',
+//   'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg',
+//   'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/g0UfxFPjNCBjuv2G0K15Qu6p7zk.jpg',
+// ];
 
 const Home = () => {
+  const [images, setImages] = useState([]);
+  const { data, loading, error } = useFetch('/movie/popular');
+
+  useEffect(() => {
+    if (!loading) {
+      setImages(data.data.results.slice(0, 3).map((result) => `https://image.tmdb.org/t/p/w500/${result.backdrop_path}`));
+    }
+  }, [data]);
   return (
     <>
       <main className="pb-24">
         <section id="hero">
           <div className="px-4 container">
-            <div className="overflow-hidden rounded-lg">
-              <Slideshow images={images} />
-            </div>
+            <div className="overflow-hidden rounded-lg">{<Slideshow images={images} />}</div>
           </div>
         </section>
         <section id="now-movie">
@@ -34,10 +42,13 @@ const Home = () => {
             </div>
 
             <div className="py-2 flex flex-wrap">
+              {error && console.log(error.message)}
+              {loading && <div className="my-2 text-orange-500">Loading...</div>}
+              {data && data.data.results.slice(0, 4).map((movie, id) => <MovieCard key={id} MovieDets={movie} />)}
+              {/* <MovieCard link={'/moviedets'} />
               <MovieCard link={'/moviedets'} />
               <MovieCard link={'/moviedets'} />
-              <MovieCard link={'/moviedets'} />
-              <MovieCard link={'/moviedets'} />
+              <MovieCard link={'/moviedets'} /> */}
             </div>
           </div>
         </section>

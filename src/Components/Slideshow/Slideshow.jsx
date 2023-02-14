@@ -8,7 +8,7 @@ const Slideshow = ({ images }) => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
 
   return (
     <div className="relative">
