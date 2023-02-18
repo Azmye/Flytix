@@ -36,7 +36,7 @@ const Home = () => {
           <div className="px-4 pt-4 container">
             <div className="flex justify-between items-center">
               <h2 className="font-bold text-orange-500">Now Playing</h2>
-              <Link className="text-sky-500">
+              <Link to={'/movies'} className="text-sky-500">
                 <HiOutlineArrowLongRight size={33} />
               </Link>
             </div>
